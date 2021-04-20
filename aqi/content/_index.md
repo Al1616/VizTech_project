@@ -55,7 +55,23 @@ By compressing the air going through the intervals between buildings, high-rise 
 
 ---
 
+
 ### Methodology
+
+{{% section %}}
+
+The building profiles are edited and generating the features of urban listed urban spae factors. The factors merge with aqi data on the column of census tract number. The correlation is then calculated between the aqi and the space factors.
+
+---
+
+The most relevant features are selected to feed the machine-learning model. Use Lasso to build the regression model. Use Scikit Learns GrisearchCV function to find the best model parameters automatically.
+
+{{% /section %}}
+
+---
+
+
+### Parameters
 
 {{% section %}}
 
@@ -82,7 +98,7 @@ With the amount limit of scraping the air quality data, the data from three cons
 
 ##### Urban Space Factors
 The Manhattan building profile is from PLUTO. The building footprint is also obtained.
-The following features of urban spacial factors are created from the raw data:
+The following features of urban space factors are created from the raw data:
 
 ---
 
@@ -90,28 +106,158 @@ The following features of urban spacial factors are created from the raw data:
 ('heightroof')
 <br> : is the average of every building roof height within the same census tracts zone. </br>
 
+---
+
+##### Ground Elevation
+('groundelev')
+<br> : is the average of every building roof height within the same census tracts zone. </br>
 
 ---
 
-By compressing the air going through the intervals between buildings, high-rise buildings creates a strong convection on the street of city grid. The pollutant either produced by local vehicles or transported from the periphery relies on air convection to disperse and to dissipate.
+##### Landuse
+For each type of landuse, the percentage of each type within a census tracts zone is obtained by the ratio of the type lot area and the total lot area of the tracts zone.
+
+---
+
+##### Landuse
+
+<br> Ld01: one & two family buildings </br>
+<br> Ld02: multi-family walk-up buildings </br>
+<br> Ld03: multi-family elevator buildings </br>
+<br> Ld04: mixed residential & commercial buildings </br>
+
+
+---
+
+##### Landuse
+
+
+<br> Ld05: commercial & office buildings </br>
+<br> Ld06: industrial & manufacturing buildings </br>
+<br> Ld07: transportation & utility </br>
+<br> Ld08: public facilities & institutions </br>
+
+---
+
+##### Landuse
+
+<br> Ld09: open space & outdoor recreation </br>
+<br> Ld10: parking facilities </br>
+<br> Ld11: vacant land </br>
+
+---
+
+##### Standalone
+('alonepct')
+<br> : is whether each building is attached to the adjacent ones. The data is area percentage of stand-alone building of the total census tracts lot area. </br>
+
+---
+
+##### FAR
+('far')
+<br> : is the ratio between total building floor area and total lot area of the census tracts zone. </br>
+
+---
+
+##### Volume
+('vol')
+<br> : is the total building volume (product of building footprint area and roof height) of the census tracts zone. </br>
+
+---
+
+##### Area Percentage
+('pct')
+<br> : is the percentage of total floor area of five different programs in the total floor area of the census tracts zone </br>
+
+---
+
+##### Area Percentage
+<br>respct: is the residential floor area  </br>
+<br>offpct: is the office floor area  </br>
+<br>retpct: is the retail floor area  </br>
+<br>facpct: is the factory floor area  </br>
+<br>strpct: is the storage floor area  </br>
+
+---
+
+##### Assessed Land Value
+('assessland')
+<br> : is the total assessed land value of the census tracts zone. </br>
+
+---
+
+##### Assessed Total Value
+('assesstot')
+<br> : is the total assessed value of land and property. </br>
+
+---
+
+##### Emission
+<br> : is the green gas emission of the census tracts zone. </br>
+
+---
+
+##### Emission
+<br> Totalemission: is the total greenhouse gas emission of the zone</br>
+<br> Directemission: is the direct greenhouse gas emission of the zone</br>
+
+---
 
 {{% /section %}}
 
 ---
 
-### air Quality
-<div class="row">
-  <div class="column">
-    <img src="3-30-6.png" alt="Snow" float:"left" style="width:33%">
-  </div>
-  <div class="column">
-    <img src="3-30-6.png" alt="Forest" style="width:20%">
-  </div>
-  <div class="column">
-    <img src="3-30-6.png" alt="Mountains" style="width:20%">
-  </div>
-</div>
+### Result
+
+{{% section %}}
+
+##### Air Quality
+
+<iframe
+src = "morn.html"
+width = "600"
+height = "450"
+frameborder = "0"
+style = "border:0"></iframe>
+<br>Morning Average AQI (6am)</br>
 
 ---
+
+##### Air Quality
+<iframe
+src = "noon.html"
+width = "600"
+height = "450"
+frameborder = "0"
+style = "border:0"></iframe>
+<br>Noon Average AQI (1pm)</br>
+
+---
+
+##### Air Quality
+<iframe
+src = "even.html"
+width = "600"
+height = "450"
+frameborder = "0"
+style = "border:0"></iframe>
+<br>Evening Average AQI (6pm)</br>
+
+---
+
+##### Air Quality
+<iframe
+src = "night.html"
+width = "600"
+height = "450"
+frameborder = "0"
+style = "border:0"></iframe>
+<br>Night Average AQI (11pm)</br>
+
+{{% /section %}}
+
+---
+
+
 
 ### air quality
